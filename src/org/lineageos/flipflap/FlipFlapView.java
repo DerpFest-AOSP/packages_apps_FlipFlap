@@ -56,7 +56,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import com.android.internal.util.derp.LineageLockPatternUtils;
+import org.derpfest.providers.DerpFestSettings;
+import org.derpfest.util.LineageLockPatternUtils;
 
 public class FlipFlapView extends FrameLayout {
     private static final String TAG = "FlipFlapView";
@@ -426,9 +427,9 @@ public class FlipFlapView extends FrameLayout {
         if (shouldUseHighTouchSensitivity() &&
                 FlipFlapUtils.getHighTouchSensitivitySupported(getContext())) {
             mUserHighTouchState = Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.HIGH_TOUCH_SENSITIVITY_ENABLE, 0);
+                    DerpFestSettings.System.HIGH_TOUCH_SENSITIVITY_ENABLE, 0);
             Settings.System.putInt(mContext.getContentResolver(),
-                    Settings.System.HIGH_TOUCH_SENSITIVITY_ENABLE, 1);
+                    DerpFestSettings.System.HIGH_TOUCH_SENSITIVITY_ENABLE, 1);
         }
     }
 
@@ -436,7 +437,7 @@ public class FlipFlapView extends FrameLayout {
         if (shouldUseHighTouchSensitivity() &&
                 FlipFlapUtils.getHighTouchSensitivitySupported(getContext())) {
             Settings.System.putInt(mContext.getContentResolver(),
-                    Settings.System.HIGH_TOUCH_SENSITIVITY_ENABLE, mUserHighTouchState);
+                    DerpFestSettings.System.HIGH_TOUCH_SENSITIVITY_ENABLE, mUserHighTouchState);
         }
     }
 
